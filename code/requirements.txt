@@ -1,0 +1,2 @@
+# No external dependencies required.
+# Tested with Python 3.13.
