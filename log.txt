@@ -1,0 +1,37 @@
+AI Collaboration Log
+
+Prompt 1:
+I asked AI to read the challenge statement carefully and identify what the terminal-based support triage agent must do.
+
+Result:
+The AI summarized the required input fields, output columns, allowed labels, corpus-grounding requirement, and escalation requirement.
+
+Prompt 2:
+I showed my initial triage_agent.py script and asked for review.
+
+Result:
+The AI pointed out issues with status casing, possible path and filename confusion, brittle CSV header handling, and the risk of unsupported answers.
+
+Prompt 3:
+I asked whether using the extracted support_tickets folder instead of reading the zip file directly was acceptable.
+
+Result:
+The AI explained that using the extracted CSV files is acceptable because the challenge evaluates the code and generated CSV output, not whether the script reads the zip directly.
+
+Prompt 4:
+I asked the AI to rewrite the script with corrections and more natural support responses.
+
+Result:
+The AI helped revise the script to use lowercase output labels, flexible CSV field reading, cleaner escalation wording, and a conservative fallback policy.
+
+Prompt 5:
+I asked the AI to compare my local folder structure with the evaluation criteria.
+
+Result:
+The AI inspected the project files, found that the generated output was initially written to output/triage_results.csv, and helped place the required predictions at support_tickets/output.csv.
+
+My Design Decisions:
+I chose a deterministic Python script rather than live LLM calls because it is reproducible, terminal-based, and easy for the evaluator to run.
+I used the provided sample support cases as the grounding corpus.
+I used conservative escalation for sensitive, ambiguous, or unsupported tickets to avoid hallucinated support policies.
+I kept the project dependency-free so it can run with standard Python.
